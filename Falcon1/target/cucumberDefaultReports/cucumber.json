@@ -1,0 +1,105 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#@Author: Manigandan"
+      },
+      {
+        "line": 2,
+        "value": "#@Email : Manigandan.Selvadurai@techmahindra.com"
+      },
+      {
+        "line": 3,
+        "value": "#@Orginzation: TechMahindra"
+      }
+    ],
+    "line": 6,
+    "elements": [
+      {
+        "line": 34,
+        "name": "Verify RBTRAN21_CCMS transaction file",
+        "description": "",
+        "id": "ccms-source-system;verify-rbtran21-ccms-transaction-file",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1107491950,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "Transaction file \"RBTRAN21\" exists for \"CCMS\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "RBTRAN21",
+                  "offset": 18
+                },
+                {
+                  "val": "CCMS",
+                  "offset": 40
+                }
+              ],
+              "location": "FileValidationStepDef.check_File_Location(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2060053,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "I validate transaction file count and perform file level validations",
+            "match": {
+              "location": "FileValidationStepDef.verify_Transaction_File_Count_Perform_File_Level_Validations()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1268543369,
+              "error_message": "java.lang.Exception: The following file(s) do(es)n\u0027t comply with the given specifications -RBTRAN21AECCMS15052017111216, Check Assertion log of the mentioned files for more info\r\n\tat stepdefinitions.FileValidationStepDef.verify_Field_Format_Mandatory_NonMandatory_Fields(FileValidationStepDef.java:133)\r\n\tat ✽.Then I verify field format for fields as per \"CCMS\" specifications for \"RBTRAN21\"(CCMS.feature:37)\r\n",
+              "status": "failed"
+            },
+            "line": 37,
+            "name": "I verify field format for fields as per \"CCMS\" specifications for \"RBTRAN21\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "CCMS",
+                  "offset": 41
+                },
+                {
+                  "val": "RBTRAN21",
+                  "offset": 67
+                }
+              ],
+              "location": "FileValidationStepDef.verify_Field_Format_Mandatory_NonMandatory_Fields(String,String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 33,
+            "name": "@RBTRAN21"
+          }
+        ]
+      }
+    ],
+    "name": "CCMS Source System",
+    "description": "",
+    "id": "ccms-source-system",
+    "keyword": "Feature",
+    "uri": "CCMS.feature",
+    "tags": [
+      {
+        "line": 5,
+        "name": "@CCMS"
+      }
+    ]
+  }
+]

@@ -1,0 +1,112 @@
+<html>
+<head><style type="text/css">h1 {background-color:#9999CC}
+h2 {background-color:#BBBBCC}
+h3 {background-color:#DDDDFF}
+th {border:1px solid black;background-color:#CCCCDD;}
+td{border:1px solid black;}
+table {border:1px solid black;border-collapse: collapse;}
+.chart {border:0px none black;border-collapse: collapse;background-color: none;}
+.passed {background-color:lightgreen;font-weight:bold;color:darkgreen}
+.failed {background-color:tomato;font-weight:bold;color:darkred}
+.undefined {background-color:gold;font-weight:bold;color:goldenrod}
+.skipped {background-color:silver;font-weight:bold;color:darkgray}
+.known {background-color:goldenrod;font-weight:bold;color:darkred}
+.passed_description {background-color:#D0FFD0;font-weight:bold;font-style:italic;color:black}
+.failed_description {background-color:#FFA898;font-weight:bold;font-style:italic;color:black}
+.comment {font-family:courier;font-weight:normal;font-size:small;color:black;border:1px dashed black;background-color:silver}
+.tip {font-family:courier;font-weight:normal;font-size:small;color:white;background-color:black}
+OL { counter-reset: item }
+OL>LI { display: block }
+OL>LI:before { content: counters(item, ".") " "; counter-increment: item }
+
+div.header {
+    display: block; text-align: center;
+    position: running(header);
+}
+div.footer {
+    display: block; text-align: center;
+    position: running(footer);
+}
+div.content {page-break-after: always;}
+@page {
+	 size: __PAGESIZE__;
+     @top-center {
+     	content: "Detailed Results Report";
+	    color: silver;
+	    font-size: 14px;
+     }
+     @top-right {
+     	content: date("dd MMM, yyyy hh:mm");
+	    color: silver;
+	    font-size: 8px;
+     }
+    @bottom-right {
+    	content: "Page " counter(page) " of " counter(pages) ;
+	    color: silver;
+	    font-size: 8px;
+    }
+}
+ol a::after {
+  content: leader('.') target-counter(attr(href), page);
+}
+</style>
+<title>Detailed Results Report</title>
+  </head>
+  <body>
+    <div class='header'></div>
+    <div class='footer'></div>
+  <h1>Overview</h1>
+<table><tr><th></th><th>Passed</th><th>Failed</th><th>Known</th><th>Undefined</th><th>%Passed</th></tr><tr><th>Features</th><td class="passed" id="features_passed">0</td><td class="failed" id="features_failed">1</td><td class="known" id="features_known">0</td><td class="undefined" id="features_undefined">0</td><td id="features_rate">0.00</td></tr><tr><th>Scenarios</th><td class="passed" id="scenarios_passed">0</td><td class="failed" id="scenarios_failed">1</td><td class="known" id="scenarios_known">0</td><td class="undefined" id="scenarios_undefined">0</td><td id="scenarios_rate">0.00</td></tr><tr><th>Steps</th><td class="passed" id="steps_passed">2</td><td class="failed" id="steps_failed">1</td><td class="known" id="steps_known">0</td><td class="undefined" id="steps_undefined">0</td><td id="steps_rate">66.67</td></tr></table><div><b>Overall Duration: 0h 00m 02s</b></div>
+<a id="top"></a><h1>Table of Contents</h1><ol><li> <span class="failed"><a href="#feature-6verify-tandem-source-system">Verify TANDEM Source System</a></span><ol><li> <span class="failed"><a href="#sc-35-verify-tandem-source-system;verify-ais20-tandem-transaction-file">Verify AIS20_TANDEM transaction file</a></span></li></ol></li></ol><h1>Detailed Results Report</h1><table width="700px"><tr class="failed"><td colspan="4"><b>Feature:</b> <a id="feature-6verify-tandem-source-system">Verify TANDEM Source System</a></td></tr><tr class="failed"><td><small><b>Passed:</b> 0</small></td><td><small><b>Failed:</b> 1</small></td><td><small><b>Undefined:</b> 0</small></td><td><small>Duration: 2.29s</small></td></tr><tr class="failed"><td colspan="4" style="padding-left:20px"> <table width="100%"><tr class="failed"><td colspan="4"><b>Scenario:</b> <a id="sc-35-verify-tandem-source-system;verify-ais20-tandem-transaction-file">Verify AIS20_TANDEM transaction file</a></td></tr><tr class="failed"><td><small><b>Passed:</b> 2</small></td><td><small><b>Failed:</b> 1</small></td><td><small><b>Undefined:</b> 0</small></td><td><small>Duration: 2.29s</small></td></tr><tr class="failed"><td colspan="4" style="padding-left:20px"> <table width="100%"><tr class="passed"><td><b>Given </b> Transaction file &quot;AIS20&quot; exists for &quot;TANDEM&quot;</td><td width="100">1.11s</td></tr><tr class="passed"><td><b>When </b> I validate transaction file count and perform file level validations</td><td width="100">0.00s</td></tr><tr class="failed"><td><b>Then </b> I verify field format for fields as per &quot;TANDEM&quot; specifications for &quot;AIS20&quot;</td><td width="100">1.18s</td></tr><tr class="failed"><td colspan="2"><div><br>java.lang.Exception: java.lang.NumberFormatException: For input string: &quot;3.0&quot;</br><br>
+	at stepdefinitions.FileValidationStepDef.verify_Field_Format_Mandatory_NonMandatory_Fields(FileValidationStepDef.java:107)</br><br>
+	at &#10045;.Then I verify field format for fields as per &quot;TANDEM&quot; specifications for &quot;AIS20&quot;(TANDEM.feature:38)</br><br>
+Caused by: java.lang.NumberFormatException: For input string: &quot;3.0&quot;</br><br>
+	at java.lang.NumberFormatException.forInputString(Unknown Source)</br><br>
+	at java.lang.Integer.parseInt(Unknown Source)</br><br>
+	at java.lang.Integer.parseInt(Unknown Source)</br><br>
+	at utils.Wrappers.getEndIndex(Wrappers.java:261)</br><br>
+	at fileValidations.AIS20.validateRecordCreationMilliseconds(AIS20.java:337)</br><br>
+	at fileValidations.AIS20.validateAIS20Transaction(AIS20.java:21)</br><br>
+	at fileValidations.FileValidation.intiateValidation(FileValidation.java:143)</br><br>
+	at stepdefinitions.FileValidationStepDef.verify_Field_Format_Mandatory_NonMandatory_Fields(FileValidationStepDef.java:104)</br><br>
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</br><br>
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)</br><br>
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)</br><br>
+	at java.lang.reflect.Method.invoke(Unknown Source)</br><br>
+	at cucumber.runtime.Utils&#36;1.call(Utils.java:40)</br><br>
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)</br><br>
+	at cucumber.runtime.Utils.invoke(Utils.java:34)</br><br>
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)</br><br>
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)</br><br>
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)</br><br>
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)</br><br>
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)</br><br>
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)</br><br>
+	at com.github.mkolisnyk.cucumber.runner.ExtendedExecutionUnitRunner.run(ExtendedExecutionUnitRunner.java:32)</br><br>
+	at com.github.mkolisnyk.cucumber.runner.ExtendedFeatureRunner.runChild(ExtendedFeatureRunner.java:99)</br><br>
+	at com.github.mkolisnyk.cucumber.runner.ExtendedFeatureRunner.runChild(ExtendedFeatureRunner.java:24)</br><br>
+	at org.junit.runners.ParentRunner&#36;3.run(ParentRunner.java:290)</br><br>
+	at org.junit.runners.ParentRunner&#36;1.schedule(ParentRunner.java:71)</br><br>
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)</br><br>
+	at org.junit.runners.ParentRunner.access&#36;000(ParentRunner.java:58)</br><br>
+	at org.junit.runners.ParentRunner&#36;2.evaluate(ParentRunner.java:268)</br><br>
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)</br><br>
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)</br><br>
+	at com.github.mkolisnyk.cucumber.runner.ExtendedCucumber.runChild(ExtendedCucumber.java:107)</br><br>
+	at com.github.mkolisnyk.cucumber.runner.ExtendedCucumber.runChild(ExtendedCucumber.java:31)</br><br>
+	at org.junit.runners.ParentRunner&#36;3.run(ParentRunner.java:290)</br><br>
+	at org.junit.runners.ParentRunner&#36;1.schedule(ParentRunner.java:71)</br><br>
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)</br><br>
+	at org.junit.runners.ParentRunner.access&#36;000(ParentRunner.java:58)</br><br>
+	at org.junit.runners.ParentRunner&#36;2.evaluate(ParentRunner.java:268)</br><br>
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)</br><br>
+	at com.github.mkolisnyk.cucumber.runner.ExtendedCucumber.run(ExtendedCucumber.java:147)</br><br>
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)</br><br>
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)</br><br>
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)</br><br>
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)</br><br>
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)</br><br>
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)</br><br>
+</br></div></td></tr></table></td></tr><tr><td colspan="5"><sup><a href="#top">Back to Table of Contents</a></sup></td></tr></table></td></tr><tr><td colspan="5"></td></tr></table>
+	</body>
+</html>
